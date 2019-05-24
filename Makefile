@@ -4,6 +4,8 @@ all : all.n3 all.txt action
 
 all.n3 :
 	curl http://prefix.cc/popular/all.file.n3 > all.n3
+all.ttl :
+	curl http://prefix.cc/popular/all.file.ttl > all.ttl
 all.txt :
 	curl http://prefix.cc/popular/all.file.txt > all.txt
 list : all.txt
@@ -20,4 +22,3 @@ key.txt : list
 	cat list | sed -e 's?\(.*\)? echo \1; ls -l  holding/`echo \1 | openssl dgst -sha1 `.rdf?' > makekey
 	chmod +x makekey
 	./makekey > key.txt
-

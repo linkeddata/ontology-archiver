@@ -13,7 +13,7 @@ e.g. python archive-ontology --root /devel/www.w3.org/archvive \
     --uri http://xmlns.com/foaf/0.1/ \
     --file foaf.rdf
 
-e.g. pyton archive-ontology --root /devel/WWW/acrhvive \
+e.g. pyton archive-ontology --root /devel/www.w3.org/acrhvive \
     --webroot  /archive --uri http://xmlns.com/foaf/0.1/
 
 """
@@ -55,8 +55,8 @@ if __name__ == '__main__':
     # print "trace"
     if (root == None):
         print "No root directory given",
-        print "Assuming /devel/WWW/archive";
-        root = "/devel/WWW/archive";
+        print "Assuming /devel/www.w3.org/archive";
+        root = "/devel/www.w3.org/archive";
     if (webroot == None):
         print "No server root URL path given (--webroot)",
         webroot = "/archive";
@@ -64,8 +64,8 @@ if __name__ == '__main__':
     if (uri == None):
         print "No URI  given\n\n" + __doc__
         sys.exit(2)
-    if (uri[:7] != 'http://'):
-        print "URI is not http:// URI \n" + __doc__
+    if (uri[:7] != 'http://' and uri[:7] != 'htts://'):
+        print "URI is not http[s]:// URI \n" + __doc__
         sys.exit(2)
 
 
